@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.lowtuna</groupId>
+	<artifactId>jackson-module-objectify</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Jackson Objectify Module</name>
+	<description>Add-on module for Jackson (http://jackson.codehaus.org) to support Objectify (http://http://code.google.com/p/objectify-appengine/) data types.</description>
+	
+	<scm>
+		<connection>scm:git:git@github.com:tburch/jackson-module-objectify.git</connection>
+		<developerConnection>scm:git:git@github.com:tburch/jackson-module-objectify.git</developerConnection>
+		<url>https://github.com/tburch/jackson-module-objectify</url>
+	</scm>
+	
+	<organization>
+		<name>lowtuna</name>
+		<url>http://lowtuna.com</url>
+	</organization>
+	
+	<developers>
+		<developer>
+			<id>tburch</id>
+			<name>Tristan Burch</name>
+			<email>tristan@lowtuna.com</email>
+		</developer>
+	</developers>
+
+	<!-- Licensing -->
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<properties>
+		<org.codehaus.jackson.version>1.9.2</org.codehaus.jackson.version>
+		<gae.version>1.6.3</gae.version>
+		<com.googlecode.objectify.version>4.0a3</com.googlecode.objectify.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>objectify-appengine</id>
+			<name>Objectify Maven Repository</name>
+			<url>http://objectify-appengine.googlecode.com/svn/maven</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${org.codehaus.jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.objectify</groupId>
+			<artifactId>objectify</artifactId>
+			<version>${com.googlecode.objectify.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-testing</artifactId>
+			<version>${gae.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
